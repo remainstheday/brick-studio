@@ -18,8 +18,8 @@ export const RoomPage = () => {
   });
   const navigate = useNavigate();
   const query = new URLSearchParams(useLocation().search);
-  const url = query.get("url");
-  const token = query.get("token");
+  const url = process.env.REACT_APP_WEBSOCKET_URL;
+  const token = process.env.REACT_APP_ACCESS_TOKEN;
   const recorder = query.get("recorder");
 
   if (!url || !token) {
@@ -142,7 +142,8 @@ async function onConnected(room, query) {
     if (videoDeviceId && room.options.videoCaptureDefaults) {
       room.options.videoCaptureDefaults.deviceId = videoDeviceId;
     }
-    await room.localParticipant.setCameraEnabled(true);
+    await room.localParticipant.setCameraEnabled(false);
+    await room.localParticipant.setScreenShareEnabled(true);
   }
 }
 

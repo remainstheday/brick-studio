@@ -9,8 +9,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/room" element={<RoomPage />} />
-          <Route path="/" element={<PreJoinPage />} />
+          <Route path="/" element={<RoomPage />} />
         </Routes>
       </Router>
     </div>

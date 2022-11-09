@@ -13,8 +13,8 @@ import { useNavigate } from "react-router-dom";
 export const PreJoinPage = () => {
   // initial state from query parameters
   const searchParams = new URLSearchParams(window.location.search);
-  const storedUrl = searchParams.get("url") ?? "ws://localhost:7880";
-  const storedToken = searchParams.get("token") ?? "";
+  const storedUrl = process.env.WEBSOCKET_URL;
+  const storedToken = process.env.ACCESS_TOKEN;
 
   // state to pass onto room
   const [url, setUrl] = useState(storedUrl);
